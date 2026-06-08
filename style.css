@@ -1,1 +1,213 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
 
+body{
+background:linear-gradient(135deg,#021B79,#0575E6);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+animation:fadeIn 1s ease-in-out;
+}
+
+/* Header */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo h2{
+font-size:22px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#9ddcff;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:80px 20px;
+animation:slideUp 1s ease;
+}
+
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#0575E6;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+.hero button:hover{
+transform:scale(1.08);
+}
+
+/* Cards */
+.networks{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:30px;
+flex-wrap:wrap;
+}
+
+.card{
+width:280px;
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:25px;
+text-align:center;
+transition:0.4s;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(255,255,255,0.25);
+}
+
+.card img{
+width:90px;
+height:90px;
+object-fit:contain;
+margin-bottom:15px;
+background:white;
+padding:10px;
+border-radius:15px;
+}
+
+/* Buy Form */
+.buy-form{
+width:90%;
+max-width:450px;
+margin:40px auto;
+background:rgba(255,255,255,0.12);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+}
+
+.buy-form h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.buy-form input,
+.buy-form select{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+outline:none;
+font-size:16px;
+}
+
+.buy-form button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00d4ff;
+color:white;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+.buy-form button:hover{
+transform:scale(1.03);
+}
+
+/* Popup */
+.popup{
+position:fixed;
+top:-100px;
+left:50%;
+transform:translateX(-50%);
+background:#00c851;
+padding:15px 25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:0.5s;
+}
+
+.popup.show{
+top:20px;
+}
+
+/* Animations */
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+@keyframes slideUp{
+from{
+transform:translateY(40px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.card{
+width:90%;
+}
+
+}
