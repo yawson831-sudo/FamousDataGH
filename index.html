@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>FamousData GH</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
+
 <body>
 
 <header>
@@ -19,60 +22,84 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Buy Data</a>
-<a href="#">Services</a>
+<a href="#home">Home</a>
+<a href="#buy">Buy Data</a>
+<a href="#services">Services</a>
 </nav>
 </header>
 
-<section class="hero">
-<div class="hero-text">
-<h1>Fast & Cheap Data Bundles</h1>
-<p>Buy MTN, Telecel & AT data instantly in Ghana.</p>
-<button>Buy Now</button>
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+<img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?w=1200"
+class="hero-img">
+
+<h1>Fast & Affordable Data Bundles</h1>
+
+<p>
+Welcome to FamousData GH —
+your trusted platform for buying
+cheap and fast MTN, Telecel,
+and AT data bundles in Ghana.
+Safe, easy and reliable.
+</p>
+
+<a href="#buy">
+<button>Buy Data Now</button>
+</a>
+
 </div>
+
 </section>
 
+<!-- NETWORKS -->
 <section class="networks">
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/New-mtn-logo.jpg/320px-New-mtn-logo.jpg">
+<div class="network-icon">📶</div>
 <h3>MTN Data</h3>
-<p>Affordable bundles</p>
+<p>Affordable internet bundles.</p>
 </div>
 
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Vodafone_icon.svg/512px-Vodafone_icon.svg.png">
+<div class="network-icon">⚡</div>
 <h3>Telecel Data</h3>
-<p>Fast internet bundles</p>
+<p>Fast & reliable browsing.</p>
 </div>
 
 <div class="card">
-<img src="https://1000logos.net/wp-content/uploads/2022/09/AirtelTigo-Logo.png">
+<div class="network-icon">🚀</div>
 <h3>AT Data</h3>
-<p>Cheap offers daily</p>
+<p>Cheap daily offers.</p>
 </div>
 
 </section>
 
-<section class="buy-form">
+<!-- BUY DATA -->
+<section class="buy-form" id="buy">
+
 <h2>Buy Data Bundle</h2>
 
 <form id="buyForm">
 
 <input type="text"
-placeholder="Enter Phone Number"
+placeholder="Phone Number"
 required>
 
 <select required>
-<option value="">Select Network</option>
+<option value="">
+Choose Network
+</option>
 <option>MTN</option>
 <option>Telecel</option>
 <option>AT</option>
 </select>
 
 <select required>
-<option value="">Select Bundle</option>
+<option value="">
+Choose Bundle
+</option>
 <option>1GB - GH₵5</option>
 <option>2GB - GH₵10</option>
 <option>5GB - GH₵20</option>
@@ -86,10 +113,37 @@ Buy Now
 </form>
 </section>
 
-<div class="popup" id="popup">
-<h3>✅ Order Sent</h3>
-<p>Admin approval SMS sent.</p>
+<!-- SERVICES -->
+<section id="services"
+class="services">
+
+<h2>Our Services</h2>
+
+<div class="service-box">
+
+<div class="service-card">
+<i class="fas fa-wifi"></i>
+<h3>Cheap Data</h3>
+<p>Affordable bundles daily.</p>
 </div>
+
+<div class="service-card">
+<i class="fas fa-mobile-alt"></i>
+<h3>Airtime Top-Up</h3>
+<p>Recharge easily.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-lock"></i>
+<h3>Secure Payment</h3>
+<p>Protected transactions.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="popup" id="popup"></div>
 
 <script src="script.js"></script>
 
