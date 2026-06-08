@@ -3,7 +3,7 @@ const popup = document.getElementById("popup");
 
 const ADMIN_PIN = "2200";
 const MAX_ATTEMPTS = 3;
-const LOCK_TIME = 10 * 60 * 1000; // 10 mins
+const LOCK_TIME = 10 * 60 * 1000;
 
 let attempts =
 parseInt(localStorage.getItem("attempts")) || 0;
@@ -11,12 +11,14 @@ parseInt(localStorage.getItem("attempts")) || 0;
 let lockedUntil =
 parseInt(localStorage.getItem("lockedUntil")) || 0;
 
-/* Popup Function */
-function showPopup(title, message, color){
+/* Popup */
+function showPopup(title, msg, color){
+
+if(!popup) return;
 
 popup.innerHTML = `
 <h3>${title}</h3>
-<p>${message}</p>
+<p>${msg}</p>
 `;
 
 popup.style.background = color;
@@ -27,42 +29,53 @@ popup.classList.remove("show");
 },3000);
 }
 
-/* Form Submit */
-form.addEventListener("submit", function(e){
+/* Buy Form */
+if(form){
+
+form.addEventListener(
+"submit",
+function(e){
 
 e.preventDefault();
 
 const now = Date.now();
 
-/* Check lock */
+/* Locked? */
 if(now < lockedUntil){
 
 const mins =
-Math.ceil((lockedUntil - now)/60000);
+Math.ceil(
+(lockedUntil - now)
+/60000
+);
 
 showPopup(
 "🔒 Locked",
-`Too many wrong PIN attempts.<br>
-Try again in ${mins} minute(s).`,
+`Try again in ${mins} minute(s).`,
 "#ff4444"
 );
 
 return;
 }
 
-/* Get form values */
 const phone =
-form.querySelector("input").value;
+form.querySelector(
+"input"
+).value;
 
 const network =
-form.querySelectorAll("select")[0].value;
+form.querySelectorAll(
+"select"
+)[0].value;
 
 const bundle =
-form.querySelectorAll("select")[1].value;
+form.querySelectorAll(
+"select"
+)[1].value;
 
-/* Fake SMS-style admin approval */
+/* Fake SMS approval */
 const pin = prompt(
-`📩 New Order Request
+`📩 NEW ORDER
 
 Network: ${network}
 Bundle: ${bundle}
@@ -71,13 +84,15 @@ Phone: ${phone}
 Enter Admin PIN`
 );
 
-/* If cancel clicked */
+/* Cancel */
 if(pin === null){
+
 showPopup(
 "❌ Cancelled",
 "Transaction cancelled.",
 "#ff8800"
 );
+
 return;
 }
 
@@ -93,8 +108,8 @@ attempts
 
 showPopup(
 "✅ Approved",
-`Data purchase for
-${phone} approved.`,
+`${bundle}
+sent to ${phone}`,
 "#00c851"
 );
 
@@ -109,11 +124,13 @@ localStorage.setItem(
 attempts
 );
 
-/* Lock after 3 tries */
-if(attempts >= MAX_ATTEMPTS){
+if(
+attempts >= MAX_ATTEMPTS
+){
 
 lockedUntil =
-Date.now() + LOCK_TIME;
+Date.now()
++ LOCK_TIME;
 
 localStorage.setItem(
 "lockedUntil",
@@ -122,7 +139,7 @@ lockedUntil
 
 showPopup(
 "🔒 PIN Locked",
-"3 wrong attempts.<br>Locked for 10 minutes.",
+"Locked for 10 minutes.",
 "#ff4444"
 );
 
@@ -137,10 +154,4 @@ attempt(s) left.`,
 }
 }
 });
-
-/* Smooth animation on load */
-window.addEventListener("load", ()=>{
-
-document.body.style.opacity = "1";
-
-});
+}
